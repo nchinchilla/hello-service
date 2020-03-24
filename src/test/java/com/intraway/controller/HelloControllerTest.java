@@ -50,7 +50,7 @@ public class HelloControllerTest {
         message.setCreatedAt(new Date());
         message.setMessageId(1);
 
-        ResponseEntity<MessageDTO> response = testRestTemplate.postForEntity("/intraway/messages/status", message, MessageDTO.class);
+        ResponseEntity<MessageDTO> response = testRestTemplate.postForEntity("/intraway/messages", message, MessageDTO.class);
 
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
 
@@ -71,7 +71,7 @@ public class HelloControllerTest {
         Message message = new Message();
         message.setText(text);
 
-        ResponseEntity<MessageDTO> response = testRestTemplate.postForEntity("/intraway/messages/status", message, MessageDTO.class);
+        ResponseEntity<MessageDTO> response = testRestTemplate.postForEntity("/intraway/messages", message, MessageDTO.class);
 
         assertThat(response.getStatusCode(), is(HttpStatus.BAD_REQUEST));
 
